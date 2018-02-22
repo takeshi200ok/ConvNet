@@ -1,4 +1,5 @@
 # coding: utf-8
+### hoge
 
 import photos
 import console

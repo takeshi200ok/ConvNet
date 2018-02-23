@@ -1,5 +1,5 @@
 # coding: utf-8
-### hoge2
+### hoge3
 
 import photos
 import console

@@ -1,5 +1,5 @@
 # coding: utf-8
-### hoge3
+### hoge4
 
 import photos
 import console
@@ -73,7 +73,7 @@ def main():
 	if faces.count() == 0:
 		print('Error: Could not find a face in the photo. Please try again with a different image.')
 		return
-	""" 
+	"""
 	j=0
 	for face in faces:
 		b = face.bounds()

@@ -25,7 +25,7 @@ def load_ci_image(img_filename):
 		raise IOError('Could not read file')
 	ci_img = CIImage.imageWithData_(data)
 	return ci_img
-	
+
 def find_faces(ci_img):
 	opt = {'CIDetectorAccuracy': 'CIDetectorAccuracyHigh'}
 	d = CIDetector.detectorOfType_context_options_('CIDetectorTypeFace', None, opt)
@@ -73,6 +73,7 @@ def main():
 	if faces.count() == 0:
 		print('Error: Could not find a face in the photo. Please try again with a different image.')
 		return
+	"""
 	j=0
 	for face in faces:
 		b = face.bounds()
@@ -87,8 +88,9 @@ def main():
 		j=j+1
 		out_file = write_output(out_img,filename='.output'+str(j)+'.jpg')
 		console.show_image(out_file)
-	print('Tap and hold the image to save it to your camera roll.')
+	"""
+	print('Hogehoge Tap and hold the image to save it to your camera roll.')
 
 if __name__ == '__main__':
 	main()
-	
+

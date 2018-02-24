@@ -6,6 +6,7 @@ import console
 from objc_util import *
 # added th
 import deep_convnet
+from PIL import Image, ImageOps
 
 
 CIFilter, CIImage, CIContext, CIDetector, CIVector = map(ObjCClass, ['CIFilter', 'CIImage', 'CIContext', 'CIDetector', 'CIVector'])
@@ -77,8 +78,11 @@ def main():
 	hoge = deep_convnet.DeepConvNet()
 	hoge.load_params(file_name='deep_convnet_params.pkl')
 	# convert from JPG to MNIST data format
-	ci_img = ci_img.convert("L")
-	out_file = write_output(ci_img,filename='output'+'.jpg')
+	path_jpg = "./output.jpg"
+	img = Image.open(path_jpg)
+	# アルファ値を考慮したグレイスケールに変換
+	img = img.convert("L")
+	out_file = write_output(img,filename='output'+'.png')
 	console.show_image(out_file)
 	#hoge.predict(1,train_flg=False)
 	"""

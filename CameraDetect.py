@@ -4,6 +4,8 @@
 import photos
 import console
 from objc_util import *
+# added th
+
 
 CIFilter, CIImage, CIContext, CIDetector, CIVector = map(ObjCClass, ['CIFilter', 'CIImage', 'CIContext', 'CIDetector', 'CIVector'])
 
@@ -70,6 +72,10 @@ def main():
 	out_file = write_output(ci_img)
 	console.show_image(out_file)
 	faces = find_faces(ci_img)
+	# ここから
+	hoge = DeepConvNet()
+	hoge.load_params(file_name='deep_convnet_params.pkl')
+	#hoge.predict(1,train_flg=False)
 	"""
 	if faces.count() == 0:
 		print('Error: Could not find a face in the photo. Please try again with a different image.')

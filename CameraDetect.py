@@ -76,8 +76,9 @@ def main():
 	### ここから ###
 	hoge = deep_convnet.DeepConvNet()
 	hoge.load_params(file_name='deep_convnet_params.pkl')
-	out_img = ci_img
-	out_file = write_output(out_img,filename='output'+'.jpg')
+	#out_img = ci_img
+	out_file = write_output(ci_img,filename='output'+'.jpg')
+	console.show_image(out_file)
 	#hoge.predict(1,train_flg=False)
 	"""
 	if faces.count() == 0:

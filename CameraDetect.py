@@ -71,7 +71,7 @@ def main():
 	console.show_image(out_file)
 	faces = find_faces(ci_img)
 	if faces.count() == 0:
-		print('Error: Could not find a face in the photo. Please try again with a different image.')
+		print('Hogehoge!!! Error: Could not find a face in the photo. Please try again with a different image.')
 		return
 	"""
 	j=0
@@ -89,7 +89,7 @@ def main():
 		out_file = write_output(out_img,filename='.output'+str(j)+'.jpg')
 		console.show_image(out_file)
 	"""
-	print('Hogehoge Tap and hold the image to save it to your camera roll.')
+	print('Tap and hold the image to save it to your camera roll.')
 
 if __name__ == '__main__':
 	main()

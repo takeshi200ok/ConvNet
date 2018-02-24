@@ -76,6 +76,7 @@ def main():
 	### ここから ###
 	hoge = deep_convnet.DeepConvNet()
 	hoge.load_params(file_name='deep_convnet_params.pkl')
+	out_img = apply_perspective(corners, ci_img)
 	out_file = write_output(out_img,filename='.output'+'.jpg')
 	#hoge.predict(1,train_flg=False)
 	"""

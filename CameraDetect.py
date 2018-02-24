@@ -5,6 +5,7 @@ import photos
 import console
 from objc_util import *
 # added th
+import deep_convnet
 
 
 CIFilter, CIImage, CIContext, CIDetector, CIVector = map(ObjCClass, ['CIFilter', 'CIImage', 'CIContext', 'CIDetector', 'CIVector'])

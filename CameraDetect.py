@@ -83,6 +83,15 @@ def main():
 	img = Image.open(path_jpg)
 	# アルファ値を考慮したグレイスケールに変換
 	img = img.convert("L")
+	# 白黒反転
+	img = ImageOps.invert(img)
+	img = img.point(lambda x: 0 if x < 130 else x)
+	img = img.point(lambda x: (x * 1000))
+	# 画像内で値が0でない最小領域を返す
+	crop = img.split()[-1].getbbox()
+	img.crop(crop)
+	# 28x28のサイズに縮小
+	img = img.resize((28, 28),Image.LANCZOS)
 	img.save(path_png)
 	#
 	ci_img = load_ci_image(path_png)

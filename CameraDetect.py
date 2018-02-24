@@ -78,7 +78,7 @@ def main():
 	hoge = deep_convnet.DeepConvNet()
 	hoge.load_params(file_name='deep_convnet_params.pkl')
 	# convert from JPG to MNIST data format
-	path_jpg = "./output.jpg"
+	path_jpg = "./.output.jpg"
 	img = Image.open(path_jpg)
 	# アルファ値を考慮したグレイスケールに変換
 	img = img.convert("L")

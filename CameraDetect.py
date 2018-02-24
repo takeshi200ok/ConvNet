@@ -79,10 +79,14 @@ def main():
 	hoge.load_params(file_name='deep_convnet_params.pkl')
 	# convert from JPG to MNIST data format
 	path_jpg = ".output.jpg"
+	path_png = "output.png"
 	img = Image.open(path_jpg)
 	# アルファ値を考慮したグレイスケールに変換
 	img = img.convert("L")
-	out_file = write_output(img,filename='output'+'.png')
+	img.save(path_png)
+	#
+	ci_img = load_ci_image(path_png)
+	out_file = write_output(ci_img,filename='output'+'.png')
 	console.show_image(out_file)
 	#hoge.predict(1,train_flg=False)
 	"""

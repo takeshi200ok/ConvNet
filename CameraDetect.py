@@ -1,5 +1,5 @@
 # coding: utf-8
-### hoge4
+### hoge
 
 import photos
 import console
@@ -72,10 +72,11 @@ def main():
 	ci_img = load_ci_image(filename)
 	out_file = write_output(ci_img)
 	console.show_image(out_file)
-	faces = find_faces(ci_img)
-	# ここから
+	# faces = find_faces(ci_img)
+	### ここから ###
 	hoge = deep_convnet.DeepConvNet()
 	hoge.load_params(file_name='deep_convnet_params.pkl')
+    out_file = write_output(out_img,filename='.output'+'.jpg')
 	#hoge.predict(1,train_flg=False)
 	"""
 	if faces.count() == 0:

@@ -5,7 +5,7 @@ import photos
 import console
 from objc_util import *
 # added th
-from DeepConvNet import deep_convnet
+import deep_convnet
 
 
 CIFilter, CIImage, CIContext, CIDetector, CIVector = map(ObjCClass, ['CIFilter', 'CIImage', 'CIContext', 'CIDetector', 'CIVector'])
@@ -74,7 +74,7 @@ def main():
 	console.show_image(out_file)
 	faces = find_faces(ci_img)
 	# ここから
-	hoge = DeepConvNet()
+	hoge = deep_convnet.DeepConvNet()
 	hoge.load_params(file_name='deep_convnet_params.pkl')
 	#hoge.predict(1,train_flg=False)
 	"""

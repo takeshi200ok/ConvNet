@@ -76,6 +76,12 @@ def main():
 	console.show_image(out_file)
 	# faces = find_faces(ci_img)
 	### ここから ###
+	mainfolder = ""
+	outputfolder = ""
+	trainfolder = "training-images"
+	testfolder = "test-images"
+	os.mkdir(tainfolder)
+	os.mkdir(testfolder)
 	# convert from JPG to MNIST data format
 	path_jpg = ".output.jpg"
 	path_png = "output.png"
@@ -98,10 +104,6 @@ def main():
 	console.show_image(out_file)
 	# MNISTデータへの変換
 	###mainfolder = os.path.dirname(os.path.realpath(__file__)) + "\\"
-	mainfolder = ""
-	outputfolder = ""
-	trainfolder = "training-images"
-	testfolder = "test-images"
 	itm = image_mnist(main_folder = mainfolder, output_folder = outputfolder,
 		train_folder = trainfolder, test_folder = testfolder)
 	itm.image_to_mnist(toSquare = False, minSquareSize = 28, convertToGZip = False)

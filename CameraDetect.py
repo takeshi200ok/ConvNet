@@ -9,6 +9,7 @@ import deep_convnet
 from PIL import Image, ImageOps
 from image_mnist import image_mnist
 import os
+import shutil
 
 
 
@@ -82,6 +83,10 @@ def main():
 	outputfolder = "./"
 	trainfolder = "training-images"
 	testfolder = "test-images"
+	if os.path.exists(trainfolder):
+		shutil.rmtree(trainfolder)
+	if os.path.exists(testfolder):
+		shutil.rmtree(testfolder)
 	os.mkdir(trainfolder)
 	os.mkdir(testfolder)
 	# convert from JPG to MNIST data format

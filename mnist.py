@@ -141,7 +141,13 @@ def load_thimage(normalize=True, flatten=True, one_hot_label=False):
     (訓練画像, 訓練ラベル), (テスト画像, テストラベル)
     """
     ### init_mnist()
-    dataset = _convert_numpy()
+    ### dataset = _convert_numpy()
+    dataset = {}
+    dataset['train_img'] =  _load_img(key_file['train_img'])
+    dataset['train_label'] = _load_label(key_file['train_label'])
+    ###dataset['test_img'] = _load_img(key_file['test_img'])
+    ###dataset['test_label'] = _load_label(key_file['test_label'])
+    
     print("Creating pickle file ...")
     with open(save_file, 'wb') as f:
         pickle.dump(dataset, f, -1)

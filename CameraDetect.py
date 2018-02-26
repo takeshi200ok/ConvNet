@@ -107,7 +107,7 @@ def main():
 	img.save(path_png)
 	# 下段に画像を表示
 	ci_img = load_ci_image(path_png)
-	out_file = write_output(ci_img,filename='./training-images/0/output'+'.png')
+	out_file = write_output(ci_img,filename='./training-images/1/output'+'.png')
 	console.show_image(out_file)
 	# MNISTデータへの変換
 	###mainfolder = os.path.dirname(os.path.realpath(__file__)) + "\\"

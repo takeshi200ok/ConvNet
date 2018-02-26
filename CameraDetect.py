@@ -8,6 +8,8 @@ from objc_util import *
 import deep_convnet
 from PIL import Image, ImageOps
 from image_mnist import image_mnist
+import os
+
 
 
 CIFilter, CIImage, CIContext, CIDetector, CIVector = map(ObjCClass, ['CIFilter', 'CIImage', 'CIContext', 'CIDetector', 'CIVector'])

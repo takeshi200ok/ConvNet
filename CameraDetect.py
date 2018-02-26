@@ -97,7 +97,8 @@ def main():
 	out_file = write_output(ci_img,filename='./training-images/output'+'.png')
 	console.show_image(out_file)
 	# MNISTデータへの変換
-	mainfolder = os.path.dirname(os.path.realpath(__file__)) + "\\"
+	###mainfolder = os.path.dirname(os.path.realpath(__file__)) + "\\"
+	mainfolder = "./"
 	outputfolder = ""
 	trainfolder = "./training-images"
 	testfolder = "./test-images"

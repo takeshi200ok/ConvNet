@@ -75,8 +75,6 @@ def main():
 	console.show_image(out_file)
 	# faces = find_faces(ci_img)
 	### ここから ###
-	hoge = deep_convnet.DeepConvNet()
-	hoge.load_params(file_name='deep_convnet_params.pkl')
 	# convert from JPG to MNIST data format
 	path_jpg = ".output.jpg"
 	path_png = "output.png"
@@ -93,10 +91,13 @@ def main():
 	# 28x28のサイズに縮小
 	img = img.resize((28, 28),Image.LANCZOS)
 	img.save(path_png)
-	#
+	# 下段に画像を表示
 	ci_img = load_ci_image(path_png)
 	out_file = write_output(ci_img,filename='output'+'.png')
 	console.show_image(out_file)
+	# DeepConvNetによる推測
+	hoge = deep_convnet.DeepConvNet()
+	hoge.load_params(file_name='deep_convnet_params.pkl')
 	#hoge.predict(1,train_flg=False)
 	"""
 	if faces.count() == 0:

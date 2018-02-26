@@ -70,7 +70,6 @@ def _convert_numpy():
     dataset['train_label'] = _load_label(key_file['train_label'])
     dataset['test_img'] = _load_img(key_file['test_img'])
     dataset['test_label'] = _load_label(key_file['test_label'])
-
     return dataset
 
 def init_mnist():
@@ -99,7 +98,7 @@ def load_mnist(normalize=True, flatten=True, one_hot_label=False):
         one_hot_labelがTrueの場合、ラベルはone-hot配列として返す
         one-hot配列とは、たとえば[0,0,1,0,0,0,0,0,0,0]のような配列
     flatten : 画像を一次元配列に平にするかどうか
-
+    
     Returns
     -------
     (訓練画像, 訓練ラベル), (テスト画像, テストラベル)

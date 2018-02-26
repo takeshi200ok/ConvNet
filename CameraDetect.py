@@ -113,7 +113,7 @@ def main():
 	# MNISTデータへの変換
 	itm = image_mnist(main_folder = mainfolder, output_folder = outputfolder,
 		train_folder = trainfolder, test_folder = testfolder)
-	itm.image_to_mnist(toSquare = False, minSquareSize = 28, convertToGZip = False)
+	itm.image_to_mnist(toSquare = False, minSquareSize = 28, convertToGZip = True)
 	# MNISTデータのロード
 	(x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
 	print(x_train.shape)

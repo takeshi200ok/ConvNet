@@ -7,6 +7,7 @@ from objc_util import *
 # added th
 import deep_convnet
 from PIL import Image, ImageOps
+from image_mnist import image_mnist
 
 
 CIFilter, CIImage, CIContext, CIDetector, CIVector = map(ObjCClass, ['CIFilter', 'CIImage', 'CIContext', 'CIDetector', 'CIVector'])
@@ -95,6 +96,14 @@ def main():
 	ci_img = load_ci_image(path_png)
 	out_file = write_output(ci_img,filename='./training-images/output'+'.png')
 	console.show_image(out_file)
+	# MNISTデータへの変換
+	mainfolder = os.path.dirname(os.path.realpath(__file__)) + "\\"
+	outputfolder = ""
+	trainfolder = "./training-images"
+	testfolder = "./test-images"
+	itm = image_mnist(main_folder = mainfolder, output_folder = outputfolder,
+			train_folder = trainfolder, test_folder = testfolder)
+			itm.image_to_mnist(toSquare = False, minSquareSize = 28, convertToGZip = False)
 	# DeepConvNetによる推測
 	hoge = deep_convnet.DeepConvNet()
 	hoge.load_params(file_name='deep_convnet_params.pkl')

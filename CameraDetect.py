@@ -81,8 +81,8 @@ def main():
 	### ここから ###
 	mainfolder = "./"
 	outputfolder = "./"
-	trainfolder = "training-images"
-	testfolder = "test-images"
+	trainfolder = "training-images/0"
+	testfolder = "test-images/0"
 	if os.path.exists(trainfolder):
 		shutil.rmtree(trainfolder)
 	if os.path.exists(testfolder):

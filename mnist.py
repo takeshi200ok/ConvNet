@@ -172,7 +172,7 @@ def load_thimage(normalize=True, flatten=True, one_hot_label=False):
     """
     dataset['train_img'] = dataset['train_img'].reshape(-1, 1, 28, 28)
     ###dataset[1] = dataset[1].reshape(1, 28, 28)
-    return (dataset[1], dataset['train_label'])
+    return (dataset['train_img'], dataset['train_label'])
 
 
 if __name__ == '__main__':

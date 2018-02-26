@@ -80,13 +80,13 @@ def main():
 	# faces = find_faces(ci_img)
 	### ここから ###
 	mainfolder = "./"
-	outputfolder = "./"
-	trainfolder = "training-images/0"
-	testfolder = "test-images/0"
-	if os.path.exists(trainfolder):
-		shutil.rmtree(trainfolder)
-	if os.path.exists(testfolder):
-		shutil.rmtree(testfolder)
+	outputfolder = ""
+	trainfolder = "training-images"
+	testfolder = "test-images"
+	if os.path.exists(trainfolder+'/1'):
+		shutil.rmtree(trainfolder+'/1')
+	if os.path.exists(testfolder+'/1'):
+		shutil.rmtree(testfolder+'/1')
 	os.mkdir(trainfolder)
 	os.mkdir(testfolder)
 	# convert from JPG to MNIST data format

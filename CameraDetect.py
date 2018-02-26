@@ -82,7 +82,7 @@ def main():
 	outputfolder = ""
 	trainfolder = "training-images"
 	testfolder = "test-images"
-	os.mkdir(tainfolder)
+	os.mkdir(trainfolder)
 	os.mkdir(testfolder)
 	# convert from JPG to MNIST data format
 	path_jpg = ".output.jpg"

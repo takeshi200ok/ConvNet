@@ -117,12 +117,14 @@ def main():
 	# MNISTデータのロード
 	### (x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
 	(x_train, t_train) = load_thimage(flatten=True, normalize=False)
-	print(x_train.shape)
-	print(x_train)
+	###print(x_train.shape)
+	###print(x_train)
 	# DeepConvNetによる推測
 	hoge = deep_convnet.DeepConvNet()
 	hoge.load_params(file_name='deep_convnet_params.pkl')
-	#hoge.predict(1,train_flg=False)
+	x = hoge.predict(x_train,train_flg=False)
+	print(x.shape)
+	print(x)
 	"""
 	if faces.count() == 0:
 		print('Error: Could not find a face in the photo. Please try again with a different image.')

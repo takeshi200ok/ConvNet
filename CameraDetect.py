@@ -78,8 +78,8 @@ def main():
 	console.show_image(out_file)
 	# faces = find_faces(ci_img)
 	### ここから ###
-	mainfolder = ""
-	outputfolder = ""
+	mainfolder = "./"
+	outputfolder = "./"
 	trainfolder = "training-images"
 	testfolder = "test-images"
 	os.mkdir(trainfolder)

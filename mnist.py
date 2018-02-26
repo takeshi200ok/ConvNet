@@ -59,7 +59,7 @@ def _load_img(file_name):
     print("Converting " + file_name + " to NumPy Array ...")
     with gzip.open(file_path, 'rb') as f:
             data = np.frombuffer(f.read(), np.uint8, offset=16)
-    ### data = data.reshape(-1, img_size)
+    data = data.reshape(-1, img_size)
     print("Done")
 
     return data
@@ -73,11 +73,11 @@ def _convert_numpy():
     return dataset
 
 def init_mnist():
-    ### download_mnist()
+    download_mnist()
     dataset = _convert_numpy()
     print("Creating pickle file ...")
-    ### with open(save_file, 'wb') as f:
-    ###     pickle.dump(dataset, f, -1)
+    with open(save_file, 'wb') as f:
+        pickle.dump(dataset, f, -1)
     print("Done!")
 
 def _change_one_hot_label(X):
@@ -98,13 +98,13 @@ def load_mnist(normalize=True, flatten=True, one_hot_label=False):
         one_hot_labelがTrueの場合、ラベルはone-hot配列として返す
         one-hot配列とは、たとえば[0,0,1,0,0,0,0,0,0,0]のような配列
     flatten : 画像を一次元配列に平にするかどうか
-    
+
     Returns
     -------
     (訓練画像, 訓練ラベル), (テスト画像, テストラベル)
     """
-    if not os.path.exists(save_file):
-        init_mnist()
+    ### if not os.path.exists(save_file):
+    init_mnist()
 
     ### with open(save_file, 'rb') as f:
     ###    dataset = pickle.load(f)
@@ -123,6 +123,47 @@ def load_mnist(normalize=True, flatten=True, one_hot_label=False):
             dataset[key] = dataset[key].reshape(-1, 1, 28, 28)
 
     return (dataset['train_img'], dataset['train_label']), (dataset['test_img'], dataset['test_label'])
+
+
+def load_thimage(normalize=True, flatten=True, one_hot_label=False):
+    """MNISTデータセットの読み込み
+
+    Parameters
+    ----------
+    normalize : 画像のピクセル値を0.0~1.0に正規化する
+    one_hot_label :
+        one_hot_labelがTrueの場合、ラベルはone-hot配列として返す
+        one-hot配列とは、たとえば[0,0,1,0,0,0,0,0,0,0]のような配列
+    flatten : 画像を一次元配列に平にするかどうか
+
+    Returns
+    -------
+    (訓練画像, 訓練ラベル), (テスト画像, テストラベル)
+    """
+    ### init_mnist()
+    dataset = _convert_numpy()
+    print("Creating pickle file ...")
+    with open(save_file, 'wb') as f:
+        pickle.dump(dataset, f, -1)
+    print("Done!")
+
+    ### with open(save_file, 'rb') as f:
+    ###    dataset = pickle.load(f)
+
+    if normalize:
+        for key in ('train_img', 'test_img'):
+            dataset[key] = dataset[key].astype(np.float32)
+            dataset[key] /= 255.0
+
+    if one_hot_label:
+        dataset['train_label'] = _change_one_hot_label(dataset['train_label'])
+        dataset['test_label'] = _change_one_hot_label(dataset['test_label'])
+
+    if not flatten:
+         for key in ('train_img'):
+            dataset[key] = dataset[key].reshape(-1, 1, 28, 28)
+
+    return (dataset['train_img'], dataset['train_label'])
 
 
 if __name__ == '__main__':

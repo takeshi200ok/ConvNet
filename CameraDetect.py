@@ -10,7 +10,7 @@ from PIL import Image, ImageOps
 from image_mnist import image_mnist
 import os
 import shutil
-from mnist import load_mnist
+from mnist import load_mnist, load_thimage
 
 
 
@@ -115,7 +115,8 @@ def main():
 		train_folder = trainfolder, test_folder = testfolder)
 	itm.image_to_mnist(toSquare = False, minSquareSize = 28, convertToGZip = True)
 	# MNISTデータのロード
-	(x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
+	### (x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
+	(x_train, t_train) = load_thimage(flatten=True, normalize=False)
 	print(x_train.shape)
 	print(x_train)
 	# DeepConvNetによる推測

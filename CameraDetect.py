@@ -116,7 +116,7 @@ def main():
 	itm.image_to_mnist(toSquare = False, minSquareSize = 28, convertToGZip = True)
 	# MNISTデータのロード
 	### (x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
-	(x_train, t_train) = load_thimage(flatten=False, normalize=True)
+	(x_train, t_train) = load_thimage(flatten=False, normalize=False)
 	###print(x_train.shape)
 	###print(x_train)
 	# DeepConvNetによる推測

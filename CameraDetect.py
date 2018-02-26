@@ -10,6 +10,7 @@ from PIL import Image, ImageOps
 from image_mnist import image_mnist
 import os
 import shutil
+import mnist
 
 
 
@@ -110,10 +111,13 @@ def main():
 	out_file = write_output(ci_img,filename='./training-images/1/output'+'.png')
 	console.show_image(out_file)
 	# MNISTデータへの変換
-	###mainfolder = os.path.dirname(os.path.realpath(__file__)) + "\\"
 	itm = image_mnist(main_folder = mainfolder, output_folder = outputfolder,
 		train_folder = trainfolder, test_folder = testfolder)
 	itm.image_to_mnist(toSquare = False, minSquareSize = 28, convertToGZip = False)
+	# MNISTデータのロード
+	(x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
+	print(x_train.shape)
+	print(x_train)
 	# DeepConvNetによる推測
 	hoge = deep_convnet.DeepConvNet()
 	hoge.load_params(file_name='deep_convnet_params.pkl')

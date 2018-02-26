@@ -87,8 +87,8 @@ def main():
 		shutil.rmtree(trainfolder+'/1')
 	if os.path.exists(testfolder+'/1'):
 		shutil.rmtree(testfolder+'/1')
-	os.mkdir(trainfolder)
-	os.mkdir(testfolder)
+	os.mkdir(trainfolder+'/1')
+	os.mkdir(testfolder+'/1')
 	# convert from JPG to MNIST data format
 	path_jpg = ".output.jpg"
 	path_png = "output.png"

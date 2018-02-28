@@ -111,10 +111,15 @@ def main():
 	ci_img = load_ci_image(path_png)
 	out_file = write_output(ci_img,filename='./training-images/1/output'+'.png')
 	console.show_image(out_file)
+	#
+	tmp_img = Image.open(filename)
+	tmp_img = tmp_img.mirror(temp_img)
+	tmp_img.save(filename)
+
 	# MNISTデータへの変換
 	itm = image_mnist(main_folder = mainfolder, output_folder = outputfolder,
 		train_folder = trainfolder, test_folder = testfolder)
-	itm.image_to_mnist(toSquare = True, minSquareSize = 28, convertToGZip = True)
+	itm.image_to_mnist(toSquare = False, minSquareSize = 28, convertToGZip = True)
 	# MNISTデータのロード
 	###(x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
 	(x_train, t_train) = load_thimage(flatten=False, normalize=False)

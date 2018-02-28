@@ -112,9 +112,11 @@ def main():
 	out_file = write_output(ci_img,filename='./training-images/1/output'+'.png')
 	console.show_image(out_file)
 	#
-	tmp_img = Image.open(filename)
+	tmp_img = Image.open(path_png)
 	tmp_img = ImageOps.mirror(tmp_img)
-	tmp_img.save(filename)
+	tmp_img.save(path_png)
+	ci_img = load_ci_image(path_png)
+	out_file = write_output(ci_img,filename='./training-images/1/output'+'.png')
 
 	# MNISTデータへの変換
 	itm = image_mnist(main_folder = mainfolder, output_folder = outputfolder,

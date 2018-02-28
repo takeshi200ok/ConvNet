@@ -166,9 +166,11 @@ def load_thimage(normalize=True, flatten=True, one_hot_label=False):
         dataset['train_label'] = _change_one_hot_label(dataset['train_label'])
         ### dataset['test_label'] = _change_one_hot_label(dataset['test_label'])
 
+    """
     if not flatten:
          for key in ('train_img'):
             dataset[key] = dataset[key].reshape(-1, 1, 28, 28)
+    """
     ###"""
     dataset['train_img'] = dataset['train_img'].reshape(-1, 1, 28, 28)
     ###dataset[1] = dataset[1].reshape(1, 28, 28)

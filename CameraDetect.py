@@ -114,6 +114,7 @@ def main():
 	#
 	tmp_img = Image.open(path_png)
 	tmp_img = ImageOps.mirror(tmp_img)
+	tmp_img = tmp_img.rotate(270)
 	tmp_img.save(path_png)
 	ci_img = load_ci_image(path_png)
 	out_file = write_output(ci_img,filename='./training-images/1/output'+'.png')

@@ -148,7 +148,7 @@ def load_thimage(normalize=True, flatten=True, one_hot_label=False):
     ###dataset['test_img'] = _load_img(key_file['test_img'])
     ###dataset['test_label'] = _load_label(key_file['test_label'])
 
-    """
+    ###"""
     print("Creating pickle file ...")
     ###with open(save_file, 'wb') as f:
     ###    pickle.dump(dataset, f, -1)
@@ -169,7 +169,7 @@ def load_thimage(normalize=True, flatten=True, one_hot_label=False):
     if not flatten:
          for key in ('train_img'):
             dataset[key] = dataset[key].reshape(-1, 1, 28, 28)
-    """
+    ###"""
     dataset['train_img'] = dataset['train_img'].reshape(-1, 1, 28, 28)
     ###dataset[1] = dataset[1].reshape(1, 28, 28)
     return (dataset['train_img'], dataset['train_label'])

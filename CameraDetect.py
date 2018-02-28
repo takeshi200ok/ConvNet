@@ -118,8 +118,7 @@ def main():
 	# MNISTデータのロード
 	###(x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
 	(x_train, t_train) = load_thimage(flatten=False, normalize=False)
-	print(x_train.shape)
-	print(t_train.shape)
+	###print(x_train.shape)
 	###print(x_train)
 	# DeepConvNetによる推測
 	hoge = deep_convnet.DeepConvNet()
@@ -132,9 +131,6 @@ def main():
 	print('=== PREDICT ===')
 	print(p)
 	print('===============')
-	x = hoge.predict(t_train,train_flg=False)
-	p = np.argmax(x)
-	print(p)
 
 if __name__ == '__main__':
 	main()

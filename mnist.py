@@ -145,14 +145,16 @@ def load_thimage(normalize=True, flatten=True, one_hot_label=False):
     dataset = {}
     dataset['train_img'] =  _load_img(key_file['train_img'])
     dataset['train_label'] = _load_label(key_file['train_label'])
+    print(dataset['train_img'])
     ###dataset['test_img'] = _load_img(key_file['test_img'])
     ###dataset['test_label'] = _load_label(key_file['test_label'])
 
-    ###"""
+    """
     print("Creating pickle file ...")
-    ###with open(save_file, 'wb') as f:
-    ###    pickle.dump(dataset, f, -1)
+    with open(save_file, 'wb') as f:
+        pickle.dump(dataset, f, -1)
     print("Done!")
+    """
 
     ### with open(save_file, 'rb') as f:
     ###    dataset = pickle.load(f)

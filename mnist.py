@@ -158,7 +158,7 @@ def load_thimage(normalize=True, flatten=True, one_hot_label=False):
     ###    dataset = pickle.load(f)
 
     if normalize:
-        for key in ('train_img'):
+        for key in ('train_img', 'test_img'):
             print(key)
             dataset[key] = dataset[key].astype(np.float32)
             dataset[key] /= 118.0

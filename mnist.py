@@ -54,7 +54,7 @@ def _load_label(file_name):
 
 def _load_img(file_name):
     file_path = dataset_dir + "/" + file_name
-    print("dataset_dir : " + file_path)
+    ###print("dataset_dir : " + file_path)
 
     print("Converting " + file_name + " to NumPy Array ...")
     with gzip.open(file_path, 'rb') as f:

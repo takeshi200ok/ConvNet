@@ -120,6 +120,7 @@ def main():
 	(x_train, t_train) = load_thimage(flatten=False, normalize=False)
 	###print(x_train.shape)
 	###print(x_train)
+	print(x_train[0].shape)
 	plt.imshow(x_train[0][:,:,0])
 	plt.show()
 	# DeepConvNetによる推測

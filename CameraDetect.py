@@ -10,7 +10,7 @@ from PIL import Image, ImageOps
 from image_mnist import image_mnist
 import os
 import shutil
-import numpy
+import numpy as np
 from mnist import load_mnist, load_thimage
 
 

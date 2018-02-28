@@ -12,7 +12,7 @@ import os
 import shutil
 import numpy as np
 from mnist import load_mnist, load_thimage
-
+import matplotlib.pyplot as plt
 
 
 CIFilter, CIImage, CIContext, CIDetector, CIVector = map(ObjCClass, ['CIFilter', 'CIImage', 'CIContext', 'CIDetector', 'CIVector'])
@@ -120,6 +120,7 @@ def main():
 	(x_train, t_train) = load_thimage(flatten=False, normalize=False)
 	###print(x_train.shape)
 	###print(x_train)
+	g = plt.imshow(x_train[0][:, :, 0])
 	# DeepConvNetによる推測
 	hoge = deep_convnet.DeepConvNet()
 	hoge.load_params(file_name='deep_convnet_params.pkl')

@@ -121,6 +121,7 @@ def main():
 	###print(x_train.shape)
 	###print(x_train)
 	g = plt.imshow(x_train[0][:, :, 0])
+	console.show_image(g)
 	# DeepConvNetによる推測
 	hoge = deep_convnet.DeepConvNet()
 	hoge.load_params(file_name='deep_convnet_params.pkl')

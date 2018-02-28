@@ -125,26 +125,11 @@ def main():
 	x = hoge.predict(x_train,train_flg=False)
 	print(x.shape)
 	print(x)
-	"""
-	if faces.count() == 0:
-		print('Error: Could not find a face in the photo. Please try again with a different image.')
-		return
-	j=0
-	for face in faces:
-		b = face.bounds()
-		w=b.size.width
-		h=b.size.height
-		rt=CGPoint(b.origin.x+w,b.origin.y+h)
-		rb=CGPoint(b.origin.x+w,b.origin.y)
-		lt=CGPoint(b.origin.x,b.origin.y+h)
-		lb=CGPoint(b.origin.x,b.origin.y)
-		corners = (rt,rb,lt,lb)
-		out_img = apply_perspective(corners, ci_img)
-		j=j+1
-		out_file = write_output(out_img,filename='.output'+str(j)+'.jpg')
-		console.show_image(out_file)
-	"""
-	print('Hogehoge!!! Tap and hold the image to save it to your camera roll.')
+	# 最も確率の高い要素のインデックスを取得
+	p = np.argmax(x)
+	print('=== PREDICT ===')
+	print(p)
+	print('===============')
 
 if __name__ == '__main__':
 	main()

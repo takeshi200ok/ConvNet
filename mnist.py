@@ -160,7 +160,7 @@ def load_thimage(normalize=True, flatten=True, one_hot_label=False):
     if normalize:
         for key in ('train_img'):
             dataset[key] = dataset[key].astype(np.float32)
-            dataset[key] /= 255.0
+            dataset[key] /= 118.0
 
     if one_hot_label:
         dataset['train_label'] = _change_one_hot_label(dataset['train_label'])

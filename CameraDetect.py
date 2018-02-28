@@ -113,7 +113,7 @@ def main():
 	console.show_image(out_file)
 	#
 	tmp_img = Image.open(filename)
-	tmp_img = ImageOps.mirror(temp_img)
+	tmp_img = ImageOps.mirror(tmp_img)
 	tmp_img.save(filename)
 
 	# MNISTデータへの変換

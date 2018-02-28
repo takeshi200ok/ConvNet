@@ -144,8 +144,6 @@ def load_thimage(normalize=True, flatten=True, one_hot_label=False):
     ### dataset = _convert_numpy()
     dataset = {}
     dataset['train_img'] =  _load_img(key_file['train_img'])
-    print("dedede")
-    print(key_file['train_img'])
     dataset['train_label'] = _load_label(key_file['train_label'])
     ###dataset['test_img'] = _load_img(key_file['test_img'])
     ###dataset['test_label'] = _load_label(key_file['test_label'])
@@ -160,8 +158,8 @@ def load_thimage(normalize=True, flatten=True, one_hot_label=False):
     ###    dataset = pickle.load(f)
 
     if normalize:
-        print('train_img')
         for key in ('train_img'):
+            print(key)
             dataset[key] = dataset[key].astype(np.float32)
             dataset[key] /= 118.0
 

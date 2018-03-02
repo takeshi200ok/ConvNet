@@ -1,4 +1,4 @@
-# coding: utf-8
+# coding: utf-8 2
 
 import photos
 import console

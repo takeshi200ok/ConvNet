@@ -9,7 +9,7 @@ class image_mnist(object):
     """description of class"""
 
 
-    def __init__(self, main_folder, output_folder, train_folder = "training-images", 
+    def __init__(self, main_folder, output_folder, train_folder = "training-images",
                  test_folder = "test-images"):
         self.main_folder = main_folder
         self.names = [[ main_folder + train_folder,'train'], [ main_folder + test_folder,'t10k']]
@@ -34,11 +34,12 @@ class image_mnist(object):
         new_im.paste(im, ((size - x) // 2, (size - y) // 2))
         return new_im
 
-    # Gets all the directory names as the classification label 
+    # Gets all the directory names as the classification label
     # and the file as the image
     def extract_images_and_labels(self, toSquare, squareSize):
         for filename in self.FileList:
-            print("Extracting " + filename)
+            ###print("Extracting " + filename)
+            print("Extracting images...")
             splitfilename = filename.split(os.sep)
             label = int(splitfilename[len(splitfilename) - 2])
             Im = Image.open(filename)
@@ -98,7 +99,8 @@ class image_mnist(object):
         output_file = open(self.main_folder + self.output_folder + name[1] + '-labels-idx1-ubyte', 'wb')
         self.data_label.tofile(output_file)
         output_file.close()
-        print("MNIST data saved for " + name[1])
+        ###print("MNIST data saved for " + name[1])
+        print("MNIST data saving...")
 
     def make_sure_path_exists(self, path):
         try:
@@ -108,10 +110,10 @@ class image_mnist(object):
 
     def GzipMnistFiles(self):
         for name in self.names:
-            f_names = [self.main_folder + self.output_folder + name[1] + '-images-idx3-ubyte', 
+            f_names = [self.main_folder + self.output_folder + name[1] + '-images-idx3-ubyte',
                        self.main_folder + self.output_folder + name[1] + '-labels-idx1-ubyte'];
 
-            for f_name in f_names:   
+            for f_name in f_names:
                 f_in = open(f_name, "rb")
                 f_out = gzip.open(f_name + '.gz', 'wb')
                 f_out.write(f_in.read())
@@ -127,13 +129,13 @@ class image_mnist(object):
             # Get all the image paths
             self.get_all_images(name)
 
-            if (len(self.FileList) > 0): 
+            if (len(self.FileList) > 0):
 
                 shuffle(self.FileList) # Usefull for further segmenting the validation set
 
                 # Extract the images and labels
                 width, height = self.extract_images_and_labels(toSquare, minSquareSize)
-            
+
                 print("Width " + str(width) + " Height " + str(height))
 
                 # Get header for labels
@@ -149,4 +151,4 @@ class image_mnist(object):
             else: print("Sorry no files detected in the given path")
 
         if convertToGZip: self.GzipMnistFiles()
-            
+
